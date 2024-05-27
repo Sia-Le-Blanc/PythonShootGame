@@ -146,13 +146,13 @@ while running:
             
             
     # 총알 발사 빈도 제어 및 발사
-    if not player.is_hit:
+    '''if not player.is_hit:
         if shoot_frequency % 15 == 0:
             bullet_sound.play()
             player.shoot(bullet_img)
         shoot_frequency += 1
         if shoot_frequency >= 15:
-            shoot_frequency = 0
+            shoot_frequency = 0'''
 
     # 적 생성
     if enemy_frequency % 50 == 0:
@@ -252,6 +252,13 @@ while running:
             player.moveLeft()
         if key_pressed[K_d] or key_pressed[K_RIGHT]:
             player.moveRight()
+        if key_pressed[K_z]:  # Z 키를 눌렀을 때 총알 발사
+            if shoot_frequency % 15 == 0:
+                bullet_sound.play()
+                player.shoot(bullet_img)
+            shoot_frequency += 1
+            if shoot_frequency >= 15:
+                shoot_frequency = 0
 
 # 게임 오버 상태에서 마우스 클릭 이벤트를 계속 처리하기 위해 루프 추가
 while is_game_over:
